@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import '../../scss/common.scss';
 import Carousel from '../components/carousel';
-
+import Panel from '../components/panel';
 export default class Vitrine extends Component{
   render() {
     return (
       <div>
-        <Carousel/>
+        <Panel>
+          <Carousel/>
+        </Panel>
       </div>
     )
   }
