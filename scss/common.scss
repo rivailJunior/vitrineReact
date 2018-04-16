@@ -1,0 +1,189 @@
+$header-heigth: 2rem;
+$slider-heigth: 20rem;
+$slider-img-heigth: 120px;
+$slider-img-width: 200px;
+$slider-item-heigth: 320px;
+$slider-item-width: 205px;
+$description-margin-top: $slider-img-heigth + 20px;
+$pagination-width: $slider-item-width;
+$slider-border-color: #d6dfe7;
+
+.container {
+
+  .header{
+    width: 100%;
+    float: left;
+    height: $header-heigth;
+    background: rgb(225,255,255); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(225,255,255,1) 0%, rgba(253,255,255,1) 43%, rgba(220,234,244,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(225,255,255,1) 0%,rgba(253,255,255,1) 43%,rgba(220,234,244,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(225,255,255,1) 0%,rgba(253,255,255,1) 43%,rgba(220,234,244,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1ffff', endColorstr='#dceaf4',GradientType=0 ); /* IE6-9 */
+  }
+
+  .slider {
+    float: right;
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    height: $slider-heigth;
+    overflow-y: hidden;
+
+    .buttonsSlider{
+      position: absolute;
+      color: black;
+      z-index: 9999;
+      height: $slider-item-heigth;
+      img {
+        width: 35px;
+        position: relative;
+        top: 40%;
+      }
+    }
+
+    #btLeft{
+      position: absolute;
+      float: left;
+      left: $slider-item-width + 18px;
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,fcfeff+43,ffffff+98&1+0,0.72+98 */
+      background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(252,254,255,0.88) 43%, rgba(255,255,255,0.72) 98%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(252,254,255,0.88) 43%,rgba(255,255,255,0.72) 98%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(252,254,255,0.88) 43%,rgba(255,255,255,0.72) 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#b8ffffff',GradientType=1 ); /* IE6-9 */
+    }
+
+    #btRigth{
+      float: right;
+      right: $pagination-width - 5px;
+      position: absolute;
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+2,fcfeff+57,ffffff+100&0.72+2,1+100 */
+      background: -moz-linear-gradient(left, rgba(255,255,255,0.72) 2%, rgba(252,254,255,0.88) 57%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left, rgba(255,255,255,0.72) 2%,rgba(252,254,255,0.88) 57%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right, rgba(255,255,255,0.72) 2%,rgba(252,254,255,0.88) 57%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
+    }
+
+    .slider-item:nth-child(2) {
+      margin-left: $slider-item-width + 45px;
+    }
+
+    .slider-item {
+      flex-shrink: 0;
+      width: $slider-item-width;
+      height: $slider-item-heigth;
+      position: relative;
+      padding: 4px;
+
+      img {
+        padding: 3px;
+        position: relative;
+        width: $slider-img-width;
+        height: $slider-img-heigth;
+      }
+      .description {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+        margin: 10px;
+
+        .price2{
+          font-weight: 800;
+          font-size: 16px;
+          color: red;
+        }
+
+        .price3{
+          font-size: 13px;
+          font-weight: 800;
+          color: red;
+        }
+      }
+    }
+
+    .fixed{
+      background-color: white;
+      position: fixed !important;
+      z-index:999;
+      border-right: 2px solid $slider-border-color !important;
+
+    }
+
+    .slider-item:hover{
+      background: rgb(201,240,252); /* Old browsers */
+      background: -moz-linear-gradient(top, rgba(201,240,252,1) 0%, rgba(255,255,242,1) 66%, rgba(255,255,242,1) 66%, rgba(255,255,242,1) 99%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, rgba(201,240,252,1) 0%,rgba(255,255,242,1) 66%,rgba(255,255,242,1) 66%,rgba(255,255,242,1) 99%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, rgba(201,240,252,1) 0%,rgba(255,255,242,1) 66%,rgba(255,255,242,1) 66%,rgba(255,255,242,1) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9f0fc', endColorstr='#fffff2',GradientType=0 ); /* IE6-9 */
+    }
+
+    .slide-pagination {
+      height: $slider-item-heigth;
+      width: $pagination-width;
+      position: absolute;
+      float: right;
+      right: 0;
+      border-left: 2px solid $slider-border-color;
+      background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.48) 20%, rgba(255,255,255,1) 42%, rgba(255,255,255,1) 98%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.48) 20%,rgba(255,255,255,1) 42%,rgba(255,255,255,1) 98%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0.48) 20%,rgba(255,255,255,1) 42%,rgba(255,255,255,1) 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
+    }
+  }
+}
+
+.col-md-1{
+  float: left;
+  width: 3rem;
+}
+
+.col-md-2{
+  float: left;
+  width: 6rem;
+}
+
+.col-md-3{
+  float: left;
+  width: 9rem;
+}
+
+.col-md-4{
+  float: left;
+  width: 12rem;
+}
+
+.col-md-5{
+  margin:5px;
+  float: left;
+  width: 15rem;
+}
+
+.col-md-6{
+  float: left;
+  width: 18rem;
+}
+
+.col-md-7{
+
+  margin:5px;
+  float: left;
+  width: 21rem;
+}
+
+.col-md-8{
+  float: left;
+  width: 24rem;
+}
+
+.col-md-9{
+  float: left;
+  width: 27rem;
+}
+
+
+.col-md-10{
+  float: left;
+  width: 30rem;
+}
+
+
+
