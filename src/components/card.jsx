@@ -8,7 +8,7 @@ export default class Card extends Component{
   }
 
   render() {
-    const {imageName, name, description, price, oldPrice, detailUrl} = this.props.options;
+    const {imageName, name, price, oldPrice, detailUrl} = this.props.options;
     const payment = this.props.options.productInfo.paymentConditions;
     const className = this.props.className ?  this.props.className : 'product';
     return(
@@ -19,12 +19,11 @@ export default class Card extends Component{
           </Col>
           <Col md={12} className="m-t-10">
             <Col md={12} className="text12">{name}</Col>
-            <Col md={12} className="text12">{description}</Col>
           </Col>
           <Col md={12} className="m-t-10">
-            <Col md={12}>{price}</Col>
-            <Col md={12}>{oldPrice}</Col>
-            <Col md={12}>{payment}</Col>
+            <Col md={12} className="text-danger"> <small >  De: </small> <strong> {oldPrice} </strong></Col>
+            <Col md={12} className="text-danger"> <small> Por:</small> <strong> {price} </strong></Col>
+            <Col md={12} className="text-danger" dangerouslySetInnerHTML={{__html: payment}}/>
           </Col>
         </Row>
       </div>

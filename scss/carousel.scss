@@ -167,7 +167,7 @@ body {
   //border-right: 2px solid $slider-border-color !important;
   float: left;
   width: $slider-item-width + 10;
-  height: $slider-item-heigth;
+  height: $slider-item-heigth + 5;
   overflow: hidden;
   img {
     position: relative;
