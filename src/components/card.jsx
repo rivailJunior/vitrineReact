@@ -5,6 +5,11 @@ import '../../scss/carousel.scss';
 export default class Card extends Component{
   constructor(props){
     super(props);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(url) {
+    window.open(url, '_blank');
   }
 
   render() {
@@ -12,7 +17,7 @@ export default class Card extends Component{
     const payment = this.props.options.productInfo.paymentConditions;
     const className = this.props.className ?  this.props.className : 'product';
     return(
-      <div data-slide="1" className={className} >
+      <div data-slide="1" className={className} onClick={() => this.onClick(detailUrl)}>
         <Row>
           <Col md={12}>
             <Image rounded src={imageName} alt=""/>
