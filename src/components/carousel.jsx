@@ -15,15 +15,20 @@ export default class Carousel extends Component {
     }
 
     this.populateProductList = this.populateProductList.bind(this);
+    this.productListSteps = 0; // to get where px slider is
+    this.carousels; // to get the total items carousel
   }
 
   componentDidMount() {
     this.doCarouselAction();
   }
 
+  /**
+   * doCarouselAction - init carousel interaction animation
+   */
   doCarouselAction() {
-    let carousels = document.querySelectorAll('.js-product-carousel');
-    [].forEach.call(carousels, (carousel) => {
+    this.carousels = document.querySelectorAll('.js-product-carousel');
+    [].forEach.call(this.carousels, (carousel) => {
       this.carouselize(carousel);
     });
   }
@@ -33,9 +38,8 @@ export default class Carousel extends Component {
    * @param carousel
    */
   carouselize(carousel) {
-    let productList = carousel.querySelector('.js-product-list');
+    this.productList = carousel.querySelector('.js-product-list');
     let productListWidth = 0;
-    let productListSteps = 0;
     let products = carousel.querySelectorAll('.product');
     let productAmount = 0;
     let productAmountVisible = 4;
@@ -46,28 +50,30 @@ export default class Carousel extends Component {
     [].forEach.call(products, (product) => {
       productAmount++;
       productListWidth += 250;
-      productList.style.width = productListWidth+"px";
+      this.productList.style.width = `${productListWidth}px`;
     });
 
     carouselNext.onclick = () => {
-      if(productListSteps < productAmount-productAmountVisible) {
-        productListSteps++;
-        moveProductList();
+      if(this.productListSteps < productAmount-productAmountVisible) {
+        this.productListSteps++;
+        this.moveProductList();
       }
     }
 
     carouselPrev.onclick = () => {
-      if(productListSteps > 0) {
-        productListSteps--;
-        moveProductList();
+      if(this.productListSteps > 0) {
+        this.productListSteps--;
+        this.moveProductList();
       }
     }
+  }
 
-    // This is a bit hacky, let me know if you find a better way to do this!
-    // Move the carousels product-list
-    function moveProductList() {
-      productList.style.transform = "translateX(-"+205*productListSteps+"px)";
-    }
+  /**
+   * moveProductList - make the slider animation (left or right)
+   */
+  moveProductList() {
+    const totalPX = - 205 * this.productListSteps;
+    this.productList.style.transform = `translateX(${totalPX}px)`;
   }
 
   /**
@@ -79,6 +85,9 @@ export default class Carousel extends Component {
     const img = item.target;
   }
 
+  /**
+   * populateProductList - will get more product to paginate in carousel
+   */
   populateProductList() {
     const newArr = this.state.productList.slice(0, 3);
     const arrAux = this.state.productList.concat(newArr)
