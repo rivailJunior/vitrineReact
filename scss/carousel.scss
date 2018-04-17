@@ -109,7 +109,6 @@ body {
   margin-left: 50px;
 
   &__item {
-    //margin-left: 3px;
     width: $slider-item-width;
     height: $carousel-height;
     display: inline-block;
@@ -137,7 +136,6 @@ body {
 
 
       .description span {
-        //font-family: 'Open Sans', sans-serif;
         font-size: 11px;
         padding: 7px;
         color: black;
@@ -164,7 +162,6 @@ body {
 .fixed {
   padding: 4px;
   background-color: white;
-  //border-right: 2px solid $slider-border-color !important;
   float: left;
   width: $slider-item-width + 10;
   height: $slider-item-heigth + 5;
@@ -185,7 +182,6 @@ body {
   }
 }
 
-
 .pagination-el{
   position: absolute;
   right: 0;
@@ -197,5 +193,12 @@ body {
   background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.48) 20%,rgba(255,255,255,1) 42%,rgba(255,255,255,1) 98%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.48) 0%, #ffffffb5 42%, white 98%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
-
 }
+
+.paginationIcon{
+  width: 100px;
+  position: relative;
+  left: 25%;
+  top: 35%;
+}
+

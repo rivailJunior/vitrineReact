@@ -8,6 +8,7 @@ export default class Carousel extends Component {
     super(props);
     this.leftIcon =  require('../../public/img/iconLeft.png');
     this.rightIcon = require('../../public/img/iconright.png');
+    this.paginationIcon = require('../../public/img/rightpagination.png');
 
     this.state = {
       proReference: ProductJsonData[0].data.reference,
@@ -97,6 +98,7 @@ export default class Carousel extends Component {
   }
 
   render () {
+
     return (
       <div className="carousel js-product-carousel">
         <Card options={this.state.proReference.item} className="fixed"/>
@@ -104,7 +106,7 @@ export default class Carousel extends Component {
           <span className="carousel__control js-carousel-prev"><i className="icon"><img src={this.leftIcon} alt=""/></i></span>
           <span href="#" className="carousel__control js-carousel-next"><i className="icon"><img src={this.rightIcon} alt=""/></i></span>
           <div className="pagination-el" onClick={this.populateProductList}>
-            pagination
+            <img src={this.paginationIcon} alt="Paginação" className="paginationIcon"/>
           </div>
           <ul className="product-list js-product-list">
             {this.state.productList.map((item, key) => {
