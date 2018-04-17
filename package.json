@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --progress --color --inline --hot",
-    "production": "webpack --progress -p"
+    "production": "webpack --progress -p",
+    "prod": "NODE_ENV=production node server.js",
+    "build": "webpack --config webpack.config.js -p --progress --color"
   },
   "keywords": [],
   "author": "",
@@ -35,6 +37,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "express": "^4.16.3",
     "history": "^4.7.2",
     "less-loader": "^4.0.5",
     "node-sass": "^4.7.2",
