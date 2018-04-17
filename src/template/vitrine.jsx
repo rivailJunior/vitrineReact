@@ -6,7 +6,7 @@ export default class Vitrine extends Component{
   render() {
     return (
       <div>
-        <Panel>
+        <Panel md={12}>
           <Carousel/>
         </Panel>
       </div>
