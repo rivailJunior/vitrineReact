@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import {Col, Row, Image} from 'react-bootstrap';
 import '../../scss/carousel.scss';
 import Card from '../components/card';
 import ProductJsonData from '../module/dataProducts';
@@ -9,39 +8,26 @@ export default class Carousel extends Component {
     super(props);
     this.leftIcon =  require('../../public/img/iconLeft.png');
     this.rightIcon = require('../../public/img/iconright.png');
-    this.options1 = {
-      img: "//imagens.pontofrio.com.br/Control/ArquivoExibir.aspx?IdArquivo=6665633",
-      description: 'Câmera 2MP, Cabo USB, Suporte à Modem 3G, Slot para Cartão e Android 4.0 – Chumbo',
-      name: 'Tablet Smart DL HD7 Kids K71 com 4GB, Wi-Fi, Tela 7',
-      price:"R$ 499,00",
-      oldPrice:"R$ 599,00",
-      payment: "ou <strong>12X</strong> de <strong> 41.58</strong>",
-      className:"fixed"
-    };
-    this.options2 = {
-      img: "//imagens.pontofrio.com.br/Control/ArquivoExibir.aspx?IdArquivo=6665633",
-      description: 'Câmera 2MP, Cabo USB, Suporte à Modem 3G, Slot para Cartão e Android 4.0 – Chumbo',
-      name: 'Tablet Smart DL HD7 Kids K71 com 4GB, Wi-Fi, Tela 7',
-      price:"R$ 499,00",
-      oldPrice:"R$ 599,00",
-      payment: "ou <strong>12X</strong> de <strong> 41.58</strong>",
-      className:"product"
-    };
+
     this.state = {
       proReference: ProductJsonData[0].data.reference,
       productList: ProductJsonData[0].data.recommendation,
     }
 
+    this.populateProductList = this.populateProductList.bind(this);
   }
 
   componentDidMount() {
+    this.doCarouselAction();
+  }
+
+  doCarouselAction() {
     let carousels = document.querySelectorAll('.js-product-carousel');
     [].forEach.call(carousels, (carousel) => {
       this.carouselize(carousel);
     });
   }
-
-
+  
   /**
    * carouselize - main function to apply animation to carousel item component
    * @param carousel
@@ -93,6 +79,14 @@ export default class Carousel extends Component {
     const img = item.target;
   }
 
+  populateProductList() {
+    const newArr = this.state.productList.slice(0, 3);
+    const arrAux = this.state.productList.concat(newArr)
+    this.setState({ productList: arrAux }, () => {
+      this.doCarouselAction();
+    })
+  }
+
   render () {
     return (
       <div className="carousel js-product-carousel">
@@ -100,7 +94,7 @@ export default class Carousel extends Component {
         <div className="carousel__view">
           <span className="carousel__control js-carousel-prev"><i className="icon"><img src={this.leftIcon} alt=""/></i></span>
           <span href="#" className="carousel__control js-carousel-next"><i className="icon"><img src={this.rightIcon} alt=""/></i></span>
-          <div className="pagination-el">
+          <div className="pagination-el" onClick={this.populateProductList}>
             pagination
           </div>
           <ul className="product-list js-product-list">
