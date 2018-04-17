@@ -1,14 +1,38 @@
 import React, {Component} from 'react';
-import {Col, Row, Image} from 'react-bootstrap';
+// import {Col, Row, Image} from 'react-bootstrap';
 import '../../scss/carousel.scss';
+import Card from '../components/card';
+import ProductJsonData from '../module/dataProducts';
 
 export default class Carousel extends Component {
   constructor(props){
     super(props);
     this.leftIcon =  require('../../public/img/iconLeft.png');
     this.rightIcon = require('../../public/img/iconright.png');
-  }
+    this.options1 = {
+      img: "//imagens.pontofrio.com.br/Control/ArquivoExibir.aspx?IdArquivo=6665633",
+      description: 'Câmera 2MP, Cabo USB, Suporte à Modem 3G, Slot para Cartão e Android 4.0 – Chumbo',
+      name: 'Tablet Smart DL HD7 Kids K71 com 4GB, Wi-Fi, Tela 7',
+      price:"R$ 499,00",
+      oldPrice:"R$ 599,00",
+      payment: "ou <strong>12X</strong> de <strong> 41.58</strong>",
+      className:"fixed"
+    };
+    this.options2 = {
+      img: "//imagens.pontofrio.com.br/Control/ArquivoExibir.aspx?IdArquivo=6665633",
+      description: 'Câmera 2MP, Cabo USB, Suporte à Modem 3G, Slot para Cartão e Android 4.0 – Chumbo',
+      name: 'Tablet Smart DL HD7 Kids K71 com 4GB, Wi-Fi, Tela 7',
+      price:"R$ 499,00",
+      oldPrice:"R$ 599,00",
+      payment: "ou <strong>12X</strong> de <strong> 41.58</strong>",
+      className:"product"
+    };
+    this.state = {
+      proReference: ProductJsonData[0].data.reference,
+      productList: ProductJsonData[0].data.recommendation,
+    }
 
+  }
 
   componentDidMount() {
     let carousels = document.querySelectorAll('.js-product-carousel');
@@ -16,6 +40,7 @@ export default class Carousel extends Component {
       this.carouselize(carousel);
     });
   }
+
 
   /**
    * carouselize - main function to apply animation to carousel item component
@@ -63,34 +88,15 @@ export default class Carousel extends Component {
    * onFocus - will set the current img bgc when its container is on focus
    * @param item
    */
-  onFocus(item){
+  onFocus(item) {
     console.log('on Focus', item.target);
     const img = item.target;
-
   }
 
   render () {
-    const img = require('../../public/produto.jpg');
-    const items = [1,2,3,4,5,6,7,8,9,10];
     return (
       <div className="carousel js-product-carousel">
-        <div data-slide="1" className="fixed">
-          <Row>
-            <Col md={12}>
-              <Image rounded src={img} alt=""/>
-            </Col>
-            <Col md={12} className="m-t-10">
-              <Col md={12} className="text12">Tablet Smart DL HD7 Kids K71 com 4GB, Wi-Fi, Tela 7\</Col>
-              <Col md={12} className="text12">Câmera 2MP, Cabo USB, Suporte à Modem 3G, Slot para Cartão e Android 4.0 – Chumbo</Col>
-            </Col>
-            <Col md={12} className="m-t-10">
-              <Col md={12}>de 100,00</Col>
-              <Col md={12}>por R$: 20, 00</Col>
-              <Col md={12}>ou 10x de 100</Col>
-            </Col>
-          </Row>
-        </div>
-
+        <Card options={this.state.proReference.item} className="fixed"/>
         <div className="carousel__view">
           <span className="carousel__control js-carousel-prev"><i className="icon"><img src={this.leftIcon} alt=""/></i></span>
           <span href="#" className="carousel__control js-carousel-next"><i className="icon"><img src={this.rightIcon} alt=""/></i></span>
@@ -98,29 +104,13 @@ export default class Carousel extends Component {
             pagination
           </div>
           <ul className="product-list js-product-list">
-            {items.map((item, key) => {
+            {this.state.productList.map((item, key) => {
               return(
                 <li className="product-list__item" key={key} >
-                  <div data-slide="1" className="product" onMouseOver={this.onFocus}>
-                    <Row>
-                      <Col md={12}>
-                        <Image rounded src={img} alt=""/>
-                      </Col>
-                      <Col md={12} className="m-t-10">
-                        <Col md={12} className="text12">Tablet Smart DL HD7 Kids K71 com 4GB, Wi-Fi, Tela 7\</Col>
-                        <Col md={12} className="text12">Câmera 2MP, Cabo USB, Suporte à Modem 3G, Slot para Cartão e Android 4.0 – Chumbo</Col>
-                      </Col>
-                      <Col md={12} className="m-t-10">
-                        <Col md={12}>de 100,00</Col>
-                        <Col md={12}>por R$: 20, 00</Col>
-                        <Col md={12}>ou 10x de 100</Col>
-                      </Col>
-                    </Row>
-                  </div>
+                  <Card options={item} className="product"/>
                 </li>
               )
             })}
-
           </ul>
         </div>
       </div>

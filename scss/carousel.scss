@@ -106,108 +106,85 @@ body {
   transform: translateX(0px);
   list-style: none;
   height: $carousel-height;
+  margin-left: 50px;
 
   &__item {
     //margin-left: 3px;
     width: $slider-item-width;
     height: $carousel-height;
     display: inline-block;
-  }
 
-  &__item:nth-child(1) {
-    margin-left: 50px;
-  }
-}
-
-.product {
-  display: table;
-  height: 100%;
-  width: 100%;
-  background-color: white;
-
-  span {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    color: white;
-    font-size: 50px;
-  }
-
-  img {
-    padding: 3px;
-    position: relative;
-    width: $slider-img-width;
-    height: $slider-img-heigth;
-  }
-
-
-  .description span {
-    //font-family: 'Open Sans', sans-serif;
-    font-size: 11px;
-    padding: 7px;
-    color: black;
-    text-align: left;
-
-    .price1{
+    .product {
+      display: table;
+      height: 100%;
       width: 100%;
-      font-weight: 800;
-      font-size: 16px;
-      color: red;
+      background-color: white;
+
+      span {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: white;
+        font-size: 50px;
+      }
+
+      img {
+        padding: 3px;
+        position: relative;
+        width: $slider-img-width;
+        height: $slider-img-heigth;
+      }
+
+
+      .description span {
+        //font-family: 'Open Sans', sans-serif;
+        font-size: 11px;
+        padding: 7px;
+        color: black;
+        text-align: left;
+      }
     }
 
-    .price2{
-      font-weight: 800;
-      font-size: 16px;
-      color: red;
+    &__item:nth-child(1){
+      margin-left: 100px;
     }
 
-    .price3{
-      font-size: 13px;
-      font-weight: 800;
-      color: red;
+    .product:hover {
+      background: rgb(201,240,252); /* Old browsers */
+      background: -moz-linear-gradient(top, rgba(201,240,252,1) 0%, rgba(255,255,242,1) 66%, rgba(255,255,242,1) 66%, rgba(255,255,242,1) 99%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, rgba(201,240,252,1) 0%,rgba(255,255,242,1) 66%,rgba(255,255,242,1) 66%,rgba(255,255,242,1) 99%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, #a1d9ea9e -5%, #fdfdfdfa 89%, #ffffff 66%, #ffffff 99%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9f0fc', endColorstr='#fffff2',GradientType=0 ); /* IE6-9 */
     }
+
   }
 }
 
-.product:hover {
-  background: rgb(201,240,252); /* Old browsers */
-  background: -moz-linear-gradient(top, rgba(201,240,252,1) 0%, rgba(255,255,242,1) 66%, rgba(255,255,242,1) 66%, rgba(255,255,242,1) 99%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(201,240,252,1) 0%,rgba(255,255,242,1) 66%,rgba(255,255,242,1) 66%,rgba(255,255,242,1) 99%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #a1d9ea9e -5%, #fdfdfdfa 89%, #ffffff 66%, #ffffff 99%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9f0fc', endColorstr='#fffff2',GradientType=0 ); /* IE6-9 */
-}
 
 .fixed {
+  padding: 4px;
   background-color: white;
   //border-right: 2px solid $slider-border-color !important;
   float: left;
-  width: $slider-item-width;
+  width: $slider-item-width + 10;
   height: $slider-item-heigth;
-
+  overflow: hidden;
   img {
     position: relative;
     width: $slider-img-width;
     height: $slider-img-heigth;
   }
 
-  .description {
-    //font-family: 'Open Sans', sans-serif;
-    font-size: 12px;
-    margin: 10px;
+  &:hover{
+    background: rgb(201,240,252); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(201,240,252,1) 0%, rgba(255,255,242,1) 66%, rgba(255,255,242,1) 66%, rgba(255,255,242,1) 99%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(201,240,252,1) 0%,rgba(255,255,242,1) 66%,rgba(255,255,242,1) 66%,rgba(255,255,242,1) 99%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #a1d9ea9e -5%, #fdfdfdfa 89%, #ffffff 66%, #ffffff 99%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9f0fc', endColorstr='#fffff2',GradientType=0 ); /* IE6-9 */
 
-    .price2 {
-      font-weight: 800;
-      font-size: 16px;
-      color: red;
-    }
-
-    .price3 {
-      font-size: 13px;
-      font-weight: 800;
-      color: red;
-    }
   }
 }
+
 
 .pagination-el{
   position: absolute;
